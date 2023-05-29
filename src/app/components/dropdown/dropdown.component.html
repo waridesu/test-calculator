@@ -1,0 +1,17 @@
+<div class="currency-value" (click)="toggle()">
+  <ng-container *ngIf="isCarOption(control.value); else simpleInput">
+    {{control.value.name}}
+    <app-apr-percent [aprPercent]="control.value.apr"/>
+  </ng-container>
+  <ng-template #simpleInput>
+    {{control.value}}
+  </ng-template>
+  <svg [class.open]="showSearches" class="action-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="19">
+    <use xlink:href="assets/icons.svg#icon-drop-down"></use>
+  </svg>
+</div>
+<div class="card" [hidden]="!showSearches">
+  <div class="search">
+    <ng-content></ng-content>
+  </div>
+</div>

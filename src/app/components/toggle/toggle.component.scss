@@ -1,0 +1,23 @@
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  width: 62px;
+  height: 32px;
+  border-radius: 50px;
+  background-color: var(--color-azure-100);
+
+  &__toggle {
+    cursor: pointer;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-mediumaquamarine-200);
+    box-shadow: 0 2px 4px rgba(86, 198, 173, 0.4);
+    transform: translateX(33px);
+
+    &.active {
+      transform: translateX(4px);
+    }
+  }
+}

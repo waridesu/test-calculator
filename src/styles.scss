@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  line-height: normal;
+  background-color: red;
+  font-family: 'Roboto', serif;
+}
+
+:root {
+  /* fonts */
+  --font-roboto: Roboto;
+
+  /* font sizes */
+  --font-size-base: 16px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-size-36xl: 55px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-darkslategray-100: #4a5653;
+  --color-darkslategray-150: #AEB7B5;
+  --color-darkslategray-200: #252f2c;
+  --color-whitesmoke-100: #f4f5f6;
+  --color-whitesmoke-200: #e6e9ed;
+  --color-mediumaquamarine-100: #77d8c2;
+  --color-mediumaquamarine-150: #707070;
+  --color-mediumaquamarine-200: #56c6ad;
+  --color-azure-100: #e0f3ef;
+
+  /* border radiuses */
+  --br-9xs: 4px;
+  --br-7xs: 6px;
+  --br-31xl: 50px;
+  --br-3xs: 10px;
+}

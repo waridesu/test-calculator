@@ -1,0 +1,58 @@
+:host {
+  position: relative;
+  display: block;
+  background-color: var(--color-whitesmoke-100);
+  height: 50px;
+}
+.currency-value {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding-inline: 22px;
+  gap: 27px;
+  height: 100%;
+}
+.action-icon {
+  margin-left: auto;
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+  cursor: pointer;
+  padding: 26px;
+  background-color: var(--color-white);
+  font-family: sans-serif;
+  opacity: 0.98;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-result {
+  padding: 14px;
+  font-size: 16px;
+  &.bold {
+    font-weight: 700;
+  }
+}
+
+.search-result:hover {
+  background: var(--color-mediumaquamarine-150);
+  color: var(--color-white);
+  font-size: 17px;
+}
+
+.label {
+  font-size: 20px;
+  color: var(--color-mediumaquamarine-150);
+}
+.card {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+

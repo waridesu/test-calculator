@@ -1,0 +1,106 @@
+<div class="calculator">
+  <div class="calculator__form">
+    <div class="calculator__header-link">
+      <button class="active">Lorem1</button>
+      <button>Lorem2</button>
+      <button>Lorem3</button>
+      <button>Lorem4</button>
+    </div>
+    <form [formGroup]="calculatorForm" class="calculator__form-group">
+      <div class="calculator__input">
+        <div class="calculator__input-header">Amount?</div>
+        <label class="calculator__input-label">
+            <span *ngIf="calculatorForm.get('amount')?.value" class="currency-input">
+              {{ calculatorForm.get('amount')?.value | currency :'USD':'symbol':'3.0' }}
+            </span>
+          <div class="calculator__input-btn-container">
+            <button class="calculator__input-btn" (click)="decrementAmount()">
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="assets/icons.svg#icon-minus"></use>
+              </svg>
+            </button>
+            <button class="calculator__input-btn" (click)="incrementAmount()">
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="assets/icons.svg#icon-plus"></use>
+              </svg>
+            </button>
+          </div>
+
+        </label>
+      </div>
+      <div class="calculator__input">
+        <div class="calculator__input-header">Currency?</div>
+        <app-dropdown [control]="calculatorForm.controls.currency" [showSearches]="isShowCurrency"
+                      (showSearchesChange)="searchChange($event, 'isShowCurrency')">
+          <label class="dropdown-search">
+            <svg>
+              <use xlink:href="assets/icons.svg#icon-search"></use>
+            </svg>
+            <input type="text" [formControl]="searchCurrency" placeholder="Lorem"/>
+          </label>
+          <div class="dropdown-info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit
+          </div>
+          <div *ngFor="let item of filteredCurrencies"
+               (click)="setDropdown(calculatorForm.controls.currency, item, 'isShowCurrency')"
+               [class.bold]="isSelected(calculatorForm.controls.currency, item)"
+               class="search-result">
+            {{ item.name }}
+            <app-apr-percent [aprPercent]="item.apr"/>
+          </div>
+          <p class="search" *ngIf="filteredCurrencies && filteredCurrencies.length <= 0">No Car found</p>
+        </app-dropdown>
+      </div>
+      <div class="calculator__input">
+        <div class="calculator__input-header">Period?</div>
+        <app-dropdown [control]="calculatorForm.controls.period" [showSearches]="isShowPeriod"
+                      (showSearchesChange)="searchChange($event, 'isShowPeriod')">
+          <div *ngFor="let item of periodValues"
+               (click)="setDropdown(calculatorForm.controls.period, item, 'isShowPeriod')"
+               [class.bold]="isSelected(calculatorForm.controls.period, item)"
+               class="search-result">
+            {{ item }}
+          </div>
+        </app-dropdown>
+      </div>
+    </form>
+    <div class="calculator__form-footer">
+      <div class="calculator__form-tooltip-container">
+        Lorem ipsum
+        <app-tooltip
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque animi mollitia ipsam quae fuga voluptatibus aut quia autem nulla corrupti suscipit quam, rem"/>
+      </div>
+      <app-toggle class="calculator__form-toggle-container"></app-toggle>
+      <div class="calculator__form-tooltip-container">
+        Lorem ipsum dolor sit
+        <app-tooltip
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque animi mollitia ipsam quae fuga voluptatibus aut quia autem nulla corrupti suscipit quam, rem"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="calculator__result">
+    <div class="calculator__result-info">
+      Profit
+      <p class="calculator__result-number">{{profit | currency:'USD' :'symbol':'2.0'}}</p>
+    </div>
+    <div class="calculator__result-info">
+      <div>Percent</div>
+      <p class="calculator__result-number">{{profitPercent.toFixed(0)}}%</p>
+      <small>Lorem ipsum dolor sit amet consectetur adipisicing elit</small>
+    </div>
+    <div class="calculator__result-rating">
+      <svg xmlns="http://www.w3.org/2000/svg" width="134" height="23">
+        <use xlink:href="assets/icons.svg#icon-stars"></use>
+      </svg>
+      <button>Lorem ipsum dolor sit</button>
+    </div>
+    <small class="calculator__result-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque
+      animi mollitia ipsam quae fuga voluptatibus
+      aut quia autem nulla corrupti suscipit quam, rem veniam, reiciendis, temporibus magni quis velit! Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Minus cumque animi mollitia ipsam quae fuga voluptatibus aut quia
+      autem nulla corrupti suscipit quam, rem veniam, reiciendis, temporibus magni quis velit! Lorem ipsum dolor sit
+      amet consectetur adipisicing</small>
+  </div>
+</div>
+
